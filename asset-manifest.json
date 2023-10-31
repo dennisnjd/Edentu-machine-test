@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Edentu-machine-test/static/css/main.64d71ccd.css",
+    "main.js": "/Edentu-machine-test/static/js/main.40f7cb38.js",
+    "static/js/787.d5ec05a2.chunk.js": "/Edentu-machine-test/static/js/787.d5ec05a2.chunk.js",
+    "static/media/bg2.jpg": "/Edentu-machine-test/static/media/bg2.6ebb747441c220a577ea.jpg",
+    "static/media/bg_edentu.jpg": "/Edentu-machine-test/static/media/bg_edentu.fe9732e3ea0e2e5999bf.jpg",
+    "static/media/bg3.jpg": "/Edentu-machine-test/static/media/bg3.6e43d6ef6181a103738b.jpg",
+    "static/media/bg4.jpg": "/Edentu-machine-test/static/media/bg4.ca0906e27a17fc1b5aa1.jpg",
+    "index.html": "/Edentu-machine-test/index.html",
+    "main.64d71ccd.css.map": "/Edentu-machine-test/static/css/main.64d71ccd.css.map",
+    "main.40f7cb38.js.map": "/Edentu-machine-test/static/js/main.40f7cb38.js.map",
+    "787.d5ec05a2.chunk.js.map": "/Edentu-machine-test/static/js/787.d5ec05a2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64d71ccd.css",
+    "static/js/main.40f7cb38.js"
+  ]
+}
