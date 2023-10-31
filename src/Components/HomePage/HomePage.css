@@ -1,0 +1,63 @@
+.container-fluid {
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#cont{
+    background-image: url("./bg_edentu.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#cont::before {
+    content: "";
+    background-image: inherit;
+    /* Inherit the background image */
+    background-size: cover;
+    filter: blur(7px);
+    /* Apply the blur effect to the pseudo-element */
+    opacity: 0.7;
+    /* Adjust the opacity as needed */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.wind {
+    height: 80vh;
+
+    background: rgba(255, 255, 255, 0.19);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.8px);
+    -webkit-backdrop-filter: blur(6.8px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bn15 {
+    font-family: lato, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    color: #912f2f;
+    display: inline-block;
+    padding: 10px 40px 10px 40px;
+    position: relative;
+    border: 3px solid #020202;
+    border-radius: 10px;
+}
+
+.bn15:hover {
+    color: #f7f7f7;
+    background-color: #020202;
+}

@@ -1,0 +1,21 @@
+#updateCont{
+    background-image: url("./bg3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.updateField{
+    padding-top: 5% !important;
+    padding: 7%;
+    height: 50vh;
+    border-radius: 30px;
+    box-shadow: 30px 30px 80px rgba(255, 3, 3, 0.1);
+    background-color: rgb(160, 221, 221);
+}
+.btn3{
+    width: 50%;
+    height: 48px;
+    /* border-color: transparent; */
+    background-color: #002f34;
+    color: whitesmoke;
+    font-weight: 900;
+}

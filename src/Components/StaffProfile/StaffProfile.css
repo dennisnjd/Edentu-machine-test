@@ -1,0 +1,25 @@
+#addDetailsCont{
+background-image: url("./bg4.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+.fields{
+    padding: 7%;
+    padding-bottom: 1% !important;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 30px 30px 80px rgba(255, 3, 3, 0.1);
+    background-color: rgb(160, 221, 221);
+}
+.btn4{
+    width: 15vw;
+    height: 7.5vh;
+    border-radius: 40%;
+    font-weight: 900;
+    background-color: black;
+    color: white;
+}
+.btn4:hover{
+    background-color: white;
+    color: black;
+}

@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./Register.css";
+import { useNavigate } from "react-router-dom";
+
 
 function AuthComponent() {
     const [email, setEmail] = useState('');
     const [org, setOrg] = useState('1'); // Assuming org is constant.
     const [otp, setOtp] = useState('');
     const [password, setPassword] = useState('');
+    const [verifyEmail, setverifyEmail] = useState(false)
+
+
+    const navigate = useNavigate();
+
 
     const handleVerifyEmail = async () => {
         try {
@@ -16,13 +24,16 @@ function AuthComponent() {
             });
 
             // Step 2: Handle the response from email verification (e.g., display a message).
-            console.log("Verify API called: ",verifyEmailResponse.data);
+            console.log("Verify API called: ", verifyEmailResponse.data);
+            setverifyEmail(true)
 
             // You can extract the OTP from the response and prompt the user to enter it.
             const receivedOTP = verifyEmailResponse.data.otp;
             setOtp(receivedOTP);
         } catch (error) {
-            console.log("Verify email failed : ",error);
+            console.log("Verify email failed : ", error);
+
+            setverifyEmail(false)
         }
     }
 
@@ -38,6 +49,7 @@ function AuthComponent() {
 
             // Step 4: Handle the response from user registration (e.g., show a success message or proceed with user authentication).
             console.log("Registration API called.");
+            navigate('/login');
         } catch (error) {
             // Handle errors here (e.g., show an error message).
             console.log("Error in registration API");
@@ -45,37 +57,59 @@ function AuthComponent() {
     }
 
     return (
-        <div>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Email Address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="text"
-                    placeholder="Organization"
-                    value={org}
-                    onChange={(e) => setOrg(e.target.value)}
-                />
-                <button onClick={handleVerifyEmail}>Verify Email</button>
-            </div>
+        <div className='container-fluid' id='registerCont'>
+            <div className="contain col-md-6 col-xs-10">
 
-            <div>
-                <input
-                    type="text"
-                    placeholder="Enter OTP"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button onClick={handleRegisterUser}>Register User</button>
+                <h1>Signup</h1>
+                <div>
+                    <div className='mt-3'>
+                        <input
+                            className='col-xs-10'
+
+                            type="text"
+                            placeholder="Email Address"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className='mt-3'>
+                        <input
+                            type="text"
+                            placeholder="Organization"
+                            value={org}
+                            onChange={(e) => setOrg(e.target.value)}
+                        /></div>
+                    {verifyEmail ? (
+                        <button className='mt-2 btn' >OTP sent <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+
+                    ) : (
+                        <button className='mt-2 btn' onClick={handleVerifyEmail}>Verify Email</button>
+
+                    )
+                    }
+
+
+                </div>
+
+                <div className='mt-5'>
+                    <div className='mt-3'>
+                        <input
+                            type="text"
+                            placeholder="Enter OTP"
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value)}
+                        />
+                    </div>
+                    <div className='mt-3'>
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <button className='mt-2 btn' onClick={handleRegisterUser}>Register User</button>
+                </div>
             </div>
         </div>
     );

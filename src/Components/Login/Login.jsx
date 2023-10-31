@@ -9,14 +9,11 @@ import { AuthContext } from '../../AuthContext';
 function Login() {
     const [email, setEmail] = useState(''); // Assuming email is used as a username
     const [password, setPassword] = useState('');
+    const [isLogged, setIsLogged] = useState(false);
     // const [token, setToken] = useState('');
 
     const { setToken } = useContext(AuthContext);
 
-
-    // useEffect(() => {
-    //     console.log("Token is:", token);
-    // }, [token]);
 
 
     const handleLogin = async () => {
@@ -29,43 +26,62 @@ function Login() {
             console.log("Login API called succesfully");
             const token = response.data.token;
             token ? console.log("Token is : ", token) : console.log("No token");
+            token ? setIsLogged(true) : setIsLogged(false);
 
             setToken(token);
         } catch (error) {
             // Handle login errors here (e.g., show an error message).
             console.log("Login API not called");
+            alert("Wrong credentilas")
         }
     }
 
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={handleLogin}>Login</button>
+        <div className='container-fluid' id='registerCont'>
+            <div className="contain col-md-6 col-xs-10">
 
-            <div>
-              <Link to={"/updateprofile"}>  <button >Update profile</button>
-                </Link>
-            </div>
+            <h1>Login</h1>
 
-            <div>
-              <Link to={"/create"}>  <button >Add details</button>
-                </Link>
-            </div>
 
-            <div>
-              <Link to={"/reset"}>  <button >Reset password</button>
-                </Link>
+                <input
+                    type="text"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                {
+                    isLogged ? (
+                        <button className='mt-4 btn' >Succesfull<i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+                    ) :
+                        (
+                            <button className='mt-4 btn' onClick={handleLogin}>Login</button>
+
+                        )
+                }
+
+
+                <div className="row mt-5">
+                    <div className='ms-2 col-4'>
+                        <Link to={"/updateprofile"}>  <button className='btn2'>Update profile</button>
+                        </Link>
+                    </div>
+
+                    <div className='ms-2 col-4' >
+                        <Link to={"/create"}>  <button className='btn2'>Add details</button>
+                        </Link>
+                    </div>
+
+                    <div className='ms-2 col-4'>
+                        <Link to={"/reset"}>  <button className='btn2'>Reset password</button>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     );

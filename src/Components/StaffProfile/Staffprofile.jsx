@@ -17,6 +17,7 @@ function Staffprofile() {
     const [emergencyContact, setEmergencyContact] = useState('0987654321');
     const [bloodGroup, setBloodGroup] = useState('A+');
     const [profilePicture, setProfilePicture] = useState(null);
+    const [isDetails, setIsDetails] = useState(false);
 
 
     useEffect(() => {
@@ -52,52 +53,88 @@ function Staffprofile() {
 
             // Handle the response (e.g., show a success message).
             console.log("Create staff API called succesfully");
+            setIsDetails(true);
         } catch (error) {
             // Handle errors (e.g., show an error message).
             console.log("Create staff API error: ", error);
+            alert("Error adding profile")
         }
     };
 
     return (
-        <div>
-            <div>
-                <div>
-                    <label>Name:</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <div className='container-fluid' id='addDetailsCont'>
+            <div className='fields'>
+                <h1>Add Details</h1>
+                <div className='mt-2'>
+                    <input
+                        type="text"
+                        value={name}
+                        placeholder='Name'
+                        onChange={(e) => setName(e.target.value)} />
                 </div>
-                <div>
-                    <label>Date of Birth:</label>
-                    <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} />
+                <div className='mt-2'>
+                    <input type="date"
+                        value={dob}
+                        placeholder='DOB'
+                        onChange={(e) => setDob(e.target.value)} />
                 </div>
-                <div>
-                    <label>Mobile:</label>
-                    <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+                <div className='mt-2'>
+                    <input type="text"
+                        value={mobile}
+                        placeholder='Mobile Number'
+                        onChange={(e) => setMobile(e.target.value)} />
                 </div>
-                <div>
-                    <label>Department:</label>
-                    <input type="text" value={department} onChange={(e) => setDepartment(e.target.value)} />
+                <div className='mt-2'>
+                    <input
+                        type="text"
+                        placeholder='Department'
+                        value={department}
+                        onChange={(e) => setDepartment(e.target.value)} />
                 </div>
-                <div>
-                    <label>Designation:</label>
-                    <input type="text" value={designation} onChange={(e) => setDesignation(e.target.value)} />
+                <div className='mt-2'>
+                    <input
+                        type="text"
+                        value={designation}
+                        placeholder='Designation'
+                        onChange={(e) => setDesignation(e.target.value)} />
                 </div>
-                <div>
-                    <label>Address:</label>
-                    <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
+                <div className='mt-2'>
+                    <input
+                        type="text"
+                        value={address}
+                        placeholder='Address'
+                        onChange={(e) => setAddress(e.target.value)} />
                 </div>
-                <div>
-                    <label>Emergency Contact:</label>
-                    <input type="text" value={emergencyContact} onChange={(e) => setEmergencyContact(e.target.value)} />
+                <div className='mt-2'>
+                    <input
+                        type="text"
+                        value={emergencyContact}
+                        placeholder='Emergency Contact'
+                        onChange={(e) => setEmergencyContact(e.target.value)} />
                 </div>
-                <div>
-                    <label>Blood Group:</label>
-                    <input type="text" value={bloodGroup} onChange={(e) => setBloodGroup(e.target.value)} />
+                <div className='mt-2'>
+                    <input
+                        type="text"
+                        value={bloodGroup}
+                        placeholder='Blood Group'
+                        onChange={(e) => setBloodGroup(e.target.value)} />
                 </div>
-                <div>
-                    <label>Profile Picture:</label>
-                    <input type="file" onChange={handleFileChange} />
+                <div className='mt-2'>
+                    <input
+                        type="file"
+                        placeholder='Profile Picture'
+                        onChange={handleFileChange} />
                 </div>
-                <button onClick={handleSubmit}>Create Staff Profile</button>
+                {
+                    isDetails ? (
+                        <button className='mt-2 btn' >Profile addded <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+
+                    ) : (
+                        <button className='mt-3 btn4' onClick={handleSubmit}>Create Staff Profile</button>
+
+                    )
+                }
+
             </div>
         </div>
     )

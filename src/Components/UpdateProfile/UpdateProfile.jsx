@@ -10,6 +10,7 @@ function UpdateProfile() {
 
   const [name, setName] = useState('');
   const [designation, setDesignation] = useState('');
+  const [isUpdated, setIsUpdated] = useState(false);
 
   useEffect(() => {
     console.log("Token from useEffect update: ", token);
@@ -26,7 +27,7 @@ function UpdateProfile() {
     // Define the data to update the profile
     const data = {
       name: name,
-      designation:designation,
+      designation: designation,
       // Add other profile fields as needed
     };
 
@@ -35,10 +36,11 @@ function UpdateProfile() {
       .then(response => {
         // Handle the response, e.g., show a success message
         console.log("Update API called");
+        setIsUpdated(true);
       })
       .catch(error => {
         // Handle errors, e.g., show an error message
-        console.log("Update API error: ",error);
+        console.log("Update API error: ", error);
 
       });
   }
@@ -46,20 +48,32 @@ function UpdateProfile() {
 
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Designation"
-        value={designation}
-        onChange={(e) => setDesignation(e.target.value)}
-      />
-      <button onClick={handleUpdateProfile}>Update Profile</button>
+    <div className='container-fluid' id='updateCont'>
+      <div className='updateField'>
+        <h1>Update Profile</h1>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Designation"
+          value={designation}
+          onChange={(e) => setDesignation(e.target.value)}
+        />
+        {
+          isUpdated ? (
+            <button className='mt-5 btn3' >Updated <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+
+          ) : (
+            <button className='mt-5 btn3' onClick={handleUpdateProfile}>Update Profile</button>
+
+          )
+        }
+
+      </div>
     </div>
   );
 }
