@@ -41,6 +41,7 @@ input{
     color: whitesmoke;
     font-weight: 900;
 }
-.btn :hover{
+.btn:hover{
     color: white;
+    background-color: #0f4e55;
 }

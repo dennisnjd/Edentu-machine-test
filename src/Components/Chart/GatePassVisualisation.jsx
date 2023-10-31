@@ -119,7 +119,7 @@ function GatePassVisualisation() {
                         <h6 onClick={() => handleType('bar')} style={{ cursor: "pointer" }}>Bar Chart</h6>
                         <div>
                             <select className='selectt col-xs-12' onChange={(e) => setSelectedFilter(e.target.value)} value={selectedFilter}>
-                                <option value="all">All</option>
+                                <option value="all">Select</option>
                                 <option value="applied_gatepass_count">Applied</option>
                                 <option value="processing_gatepass_count">Processing</option>
                                 <option value="approved_gatepass_count">Approved</option>
