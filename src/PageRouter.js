@@ -6,6 +6,7 @@ import Login from "./Components/Login/Login";
 import UpdateProfile from "./Components/UpdateProfile/UpdateProfile";
 import ForgetPassword from "./Components/ForgetPassword/ForgetPassword";
 import HomePage from "./Components/HomePage/HomePage";
+import GatePassVisualisation from "./Components/Chart/GatePassVisualisation";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/reset",
     element: <ForgetPassword />
+  },
+  {
+    path:"/chart",
+    element:<GatePassVisualisation/>
   }
 ]
 );

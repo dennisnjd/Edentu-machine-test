@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import "./Login.css"
 import { Link } from 'react-router-dom';
@@ -10,7 +10,6 @@ function Login() {
     const [email, setEmail] = useState(''); // Assuming email is used as a username
     const [password, setPassword] = useState('');
     const [isLogged, setIsLogged] = useState(false);
-    // const [token, setToken] = useState('');
 
     const { setToken } = useContext(AuthContext);
 
@@ -22,7 +21,6 @@ function Login() {
                 username: email,
                 password: password,
             });
-            // Handle the login response here, e.g., store the token or user information in your app's state.
             console.log("Login API called succesfully");
             const token = response.data.token;
             token ? console.log("Token is : ", token) : console.log("No token");
@@ -30,7 +28,6 @@ function Login() {
 
             setToken(token);
         } catch (error) {
-            // Handle login errors here (e.g., show an error message).
             console.log("Login API not called");
             alert("Wrong credentilas")
         }
@@ -67,18 +64,24 @@ function Login() {
 
 
                 <div className="row mt-5">
-                    <div className='ms-2 col-4'>
-                        <Link to={"/updateprofile"}>  <button className='btn2'>Update profile</button>
-                        </Link>
-                    </div>
 
-                    <div className='ms-2 col-4' >
+                    <div className='ms-2 col-5' >
                         <Link to={"/create"}>  <button className='btn2'>Add details</button>
                         </Link>
                     </div>
 
-                    <div className='ms-2 col-4'>
+                    <div className='ms-2 col-5'>
+                        <Link to={"/updateprofile"}>  <button className='btn2'>Update profile</button>
+                        </Link>
+                    </div>
+
+                    <div className='mt-3 col-5'>
                         <Link to={"/reset"}>  <button className='btn2'>Reset password</button>
+                        </Link>
+                    </div>
+
+                    <div className=' mt-3 col-5'>
+                        <Link to={"/chart"}>  <button className='btn2'>Gate Pass chart </button>
                         </Link>
                     </div>
                 </div>

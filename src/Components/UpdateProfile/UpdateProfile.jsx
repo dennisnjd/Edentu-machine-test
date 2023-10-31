@@ -18,28 +18,26 @@ function UpdateProfile() {
 
   const handleUpdateProfile = () => {
 
-    // Define the headers with the Authorization header
     const headers = {
       'Authorization': `Token ${token}`,
-      'Content-Type': 'application/json',
+      'Content-Type': 'multipart/form-data',
     };
 
-    // Define the data to update the profile
+    // Data to update the profile
     const data = {
       name: name,
       designation: designation,
       // Add other profile fields as needed
     };
 
-    // Send the PUT request with the headers and data
+    //PUT request with the headers and data
     axios.put('https://conext.in/custom_users/api/update-profile/', data, { headers })
       .then(response => {
-        // Handle the response, e.g., show a success message
+
         console.log("Update API called");
         setIsUpdated(true);
       })
       .catch(error => {
-        // Handle errors, e.g., show an error message
         console.log("Update API error: ", error);
 
       });

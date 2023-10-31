@@ -31,7 +31,7 @@ function Staffprofile() {
 
     const handleSubmit = async () => {
         try {
-            // Create a FormData object to send the data with the image file
+            // FormData object to send the data with the image file
             const formData = new FormData();
             formData.append('name', name);
             formData.append('dob', dob);
@@ -43,19 +43,18 @@ function Staffprofile() {
             formData.append('blood_group', bloodGroup);
             formData.append('picture', profilePicture);
 
-            // Make the POST request to create the staff profile
+            // POST request to create the staff profile
             const response = await axios.post('https://conext.in/custom_users/api/create_staff_profile/', formData, {
                 headers: {
                     'Authorization': `Token ${token}`,
-                    'Content-Type': 'multipart/form-data', // Important for file uploads
+                    'Content-Type': 'multipart/form-data', 
                 },
             });
 
-            // Handle the response (e.g., show a success message).
             console.log("Create staff API called succesfully");
             setIsDetails(true);
+
         } catch (error) {
-            // Handle errors (e.g., show an error message).
             console.log("Create staff API error: ", error);
             alert("Error adding profile")
         }
@@ -125,15 +124,17 @@ function Staffprofile() {
                         placeholder='Profile Picture'
                         onChange={handleFileChange} />
                 </div>
-                {
-                    isDetails ? (
-                        <button className='mt-2 btn' >Profile addded <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+                <div>
+                    {
+                        isDetails ? (
+                            <button className='mt-2 btn' >Profile addded <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
 
-                    ) : (
-                        <button className='mt-3 btn4' onClick={handleSubmit}>Create Staff Profile</button>
+                        ) : (
+                            <button className='mt-3 btn4' onClick={handleSubmit}>Create Staff Profile</button>
 
-                    )
-                }
+                        )
+                    }
+                </div>
 
             </div>
         </div>

@@ -1,0 +1,14 @@
+.selectt{
+    width: 20vw;
+    height: 6vh;
+    border: none;
+    border-bottom: 2px solid blue;
+    font-weight: 700;
+    color: rgb(115, 156, 231);
+}
+
+.count{
+    font-weight: 700;
+    font-size: large;
+    color: rgb(5, 90, 62);
+}

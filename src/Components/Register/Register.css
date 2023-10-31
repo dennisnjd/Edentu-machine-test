@@ -23,6 +23,16 @@ input{
     height: 4vw;
     background-color: transparent;
 }
+@media (max-width: 767px) {
+
+    /* Apply the following styles only for screens with a max-width of 767px (typically mobile devices) */
+    input {
+        height: 10vw;
+        /* Adjust the height as needed */
+    }
+   
+}
+
 .btn{
     width: 50%;
     height: 48px;

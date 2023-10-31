@@ -15,21 +15,24 @@ function AuthComponent() {
     const navigate = useNavigate();
 
 
+    // Verify the email id by sending OTP
     const handleVerifyEmail = async () => {
         try {
-            // Step 1: Verify the email
             const verifyEmailResponse = await axios.post('https://conext.in/custom_users/api/verify_email/', {
                 email_address: email,
                 org,
             });
 
-            // Step 2: Handle the response from email verification (e.g., display a message).
+            // Handling the response from email verification
             console.log("Verify API called: ", verifyEmailResponse.data);
-            setverifyEmail(true)
+            if (verifyEmailResponse.data.status == true)
+                setverifyEmail(true)
+            else
+                alert("Wrong Email id")
 
-            // You can extract the OTP from the response and prompt the user to enter it.
-            const receivedOTP = verifyEmailResponse.data.otp;
-            setOtp(receivedOTP);
+            // //Extract the OTP from the response and prompt the user to enter it.
+            // const receivedOTP = verifyEmailResponse.data.otp;
+            // setOtp(receivedOTP);
         } catch (error) {
             console.log("Verify email failed : ", error);
 
@@ -39,7 +42,7 @@ function AuthComponent() {
 
     const handleRegisterUser = async () => {
         try {
-            // Step 3: Register the user with the provided OTP
+            // Register the user with the provided OTP
             const registrationResponse = await axios.post('https://conext.in/custom_users/api/register/', {
                 email,
                 password,
@@ -47,11 +50,9 @@ function AuthComponent() {
                 otp,
             });
 
-            // Step 4: Handle the response from user registration (e.g., show a success message or proceed with user authentication).
             console.log("Registration API called.");
             navigate('/login');
         } catch (error) {
-            // Handle errors here (e.g., show an error message).
             console.log("Error in registration API");
         }
     }
