@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
 import axios from 'axios';
-import Chart from 'chart.js/auto'; 
+import Chart from 'chart.js/auto';
 import "./GatePassVisualisation.css"
 import { AuthContext } from '../../AuthContext';
+import Navbar from "../Navbar/Navbar"
 
 function GatePassVisualisation() {
     const { state } = useContext(AuthContext);
@@ -10,9 +11,9 @@ function GatePassVisualisation() {
 
     const [gatePassData, setGatePassData] = useState({});
     const chartRef = useRef(null); // Create a ref for the chart instance
-    const [loading, setLoading] = useState(true); 
-    const [chartType, setChartType] = useState('bar'); 
-    const [selectedFilter, setSelectedFilter] = useState('all'); 
+    const [loading, setLoading] = useState(true);
+    const [chartType, setChartType] = useState('bar');
+    const [selectedFilter, setSelectedFilter] = useState('all');
 
     const [filteredData, setFilteredData] = useState({}); // Store filtered data
 
@@ -96,52 +97,57 @@ function GatePassVisualisation() {
                 });
             }
         };
- 
+
         filterData();
     }, [selectedFilter, gatePassData]);
 
-    const handleType = (type) =>{
+    const handleType = (type) => {
         setChartType(type)
     }
 
     return (
-        <div className='container-fluid'>
-            <div className='col-xs-10 col-md-7'>
-                <h1>Gate Pass Data Visualization</h1>
-                {loading ? (
-                    <h6>Loading...<i className="fa-solid fa-spinner fa-spin"></i></h6>
-                ) : (
-                    <div>
-                        <div className="chart mb-4">
-                            <canvas ref={chartRef} />
-                        </div>
-                        <h6 onClick={() => handleType('line')} style={{ cursor: "pointer" }}>Line Chart</h6>
-                        <h6 onClick={() => handleType('bar')} style={{ cursor: "pointer" }}>Bar Chart</h6>
-                        <div>
-                            <select className='selectt col-xs-12' onChange={(e) => setSelectedFilter(e.target.value)} value={selectedFilter}>
-                                <option value="all">Select</option>
-                                <option value="applied_gatepass_count">Applied</option>
-                                <option value="processing_gatepass_count">Processing</option>
-                                <option value="approved_gatepass_count">Approved</option>
-                                <option value="rejected_gatepass_count">Rejected</option>
-                            </select>
-                        </div>
-                        <div>
-                            <p className='mt-5 count'>
-                                {selectedFilter === 'all'
-                                    ? 'All Data'
-                                    : `${selectedFilter
-                                        .replace('_gatepass_count', '')
-                                        .charAt(0)
-                                        .toUpperCase()}${selectedFilter.slice(1)} Data: ${filteredData[selectedFilter]
-                                    }`}
-                            </p> 
+        <>
+            <Navbar />
 
+
+            <div className='container-fluid'>
+                <div className='chartContain col-xs-10 col-md-7'>
+                    <h1 className='h1Chart'>Gate Pass Data Visualization</h1>
+                    {loading ? (
+                        <h6>Loading...<i className="fa-solid fa-spinner fa-spin"></i></h6>
+                    ) : (
+                        <div>
+                            <div className="chart mb-4">
+                                <canvas ref={chartRef} />
+                            </div>
+                            <h6 onClick={() => handleType('line')} style={{ cursor: "pointer" }}>Line Chart</h6>
+                            <h6 onClick={() => handleType('bar')} style={{ cursor: "pointer" }}>Bar Chart</h6>
+                            <div>
+                                <select className='selectt col-xs-12' onChange={(e) => setSelectedFilter(e.target.value)} value={selectedFilter}>
+                                    <option value="all">Select</option>
+                                    <option value="applied_gatepass_count">Applied</option>
+                                    <option value="processing_gatepass_count">Processing</option>
+                                    <option value="approved_gatepass_count">Approved</option>
+                                    <option value="rejected_gatepass_count">Rejected</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p className='mt-5 count'>
+                                    {selectedFilter === 'all'
+                                        ? 'All Data'
+                                        : `${selectedFilter
+                                            .replace('_gatepass_count', '')
+                                            .charAt(0)
+                                            .toUpperCase()}${selectedFilter.slice(1)} Data: ${filteredData[selectedFilter]
+                                        }`}
+                                </p>
+
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

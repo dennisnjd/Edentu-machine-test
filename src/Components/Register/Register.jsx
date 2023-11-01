@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function AuthComponent() {
     const [email, setEmail] = useState('');
-    const [org, setOrg] = useState('1'); // Assuming org is constant.
+    const [org, setOrg] = useState(''); // Assuming org is constant.
     const [otp, setOtp] = useState('');
     const [password, setPassword] = useState('');
     const [verifyEmail, setverifyEmail] = useState(false)
@@ -59,9 +59,14 @@ function AuthComponent() {
 
     return (
         <div className='container-fluid' id='registerCont'>
-            <div className="contain col-md-6 col-xs-10">
+            <div className="containn col-md-8 col-xs-10">
 
-                <h1>Signup</h1>
+                <h1 className='h11' style={{ color: "black" }}>Create your account</h1>
+                <p className='paraReg mt-4'>
+                    <span style={{ fontWeight: "700" }}>"Unlock a world of knowledge and start your e-learning journey today!"</span>
+
+                    <br />
+                    note: Use your official mail id for registration</p>
                 <div>
                     <div className='mt-3'>
                         <input
@@ -109,7 +114,8 @@ function AuthComponent() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button className='mt-2 btn' onClick={handleRegisterUser}>Register User</button>
+                    <button className='mt-2 mb-3 btn' onClick={handleRegisterUser}>Register </button>
+
                 </div>
             </div>
         </div>

@@ -8,8 +8,9 @@
     padding: 7%;
     height: 50vh;
     border-radius: 30px;
-    box-shadow: 30px 30px 80px rgba(255, 3, 3, 0.1);
-    background-color: rgb(160, 221, 221);
+    box-shadow: -6px -18px 80px whitesmoke; 
+       /* background-color: rgb(160, 221, 221); */
+    background-color: #A2B0FF;;
 }
 .btn3{
     width: 50%;
@@ -18,4 +19,11 @@
     background-color: #002f34;
     color: whitesmoke;
     font-weight: 900;
+}
+.h1update{
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 8.1px;
+    font-size: 46px;
+    text-align: center;
+    color: black;
 }

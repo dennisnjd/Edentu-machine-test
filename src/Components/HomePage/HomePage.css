@@ -1,16 +1,17 @@
 .container-fluid {
-    
+
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
-#cont{
-    background-image: url("./bg_edentu.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 
+#cont {
+  
+    /* background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(13, 13, 14, 1) 42%, rgba(45, 103, 115, 1) 77%, rgba(3, 106, 126, 1) 100%); */
+background: white;
 }
 
 #cont::before {
@@ -42,6 +43,37 @@
     justify-content: center;
     align-items: center;
 }
+.wind2{
+    height: 80vh;
+    background-image: url("./dp2.png");
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+@media (max-width: 767px) {
+
+    /* Apply the following styles only for screens with a max-width of 767px (typically mobile devices) */
+    .wind {
+        height: 45vh;
+        margin-top: -324px;
+
+    }
+    .wind2{
+        height: 40vh;
+    }
+    .bn15{
+        font-size: .7rem;
+        padding: 5px 20px 5px 20px;
+    }
+   
+}
+
+.parag{
+    font-size: medium;
+    color: silver;
+    font-weight: 450;
+    text-align: center;
+}
 
 .bn15 {
     font-family: lato, sans-serif;
@@ -49,11 +81,11 @@
     font-size: 1em;
     letter-spacing: 0.1em;
     text-decoration: none;
-    color: #912f2f;
+    color: rgb(84, 185, 219);
     display: inline-block;
     padding: 10px 40px 10px 40px;
     position: relative;
-    border: 3px solid #020202;
+    border: 3px solid silver;
     border-radius: 10px;
 }
 

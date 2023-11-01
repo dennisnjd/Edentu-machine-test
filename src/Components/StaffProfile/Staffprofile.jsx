@@ -2,13 +2,15 @@ import axios from 'axios';
 import React, { useState, useContext, useEffect } from 'react'
 import "./StaffProfile.css"
 import { AuthContext } from '../../AuthContext';
+import Navbar from "../Navbar/Navbar";
+
 
 
 function Staffprofile() {
     const { state } = useContext(AuthContext);
     const token = state.token;
 
-    const [name, setName] = useState('Luha Kp');
+    const [name, setName] = useState('');
     const [dob, setDob] = useState('2000-10-25');
     const [mobile, setMobile] = useState('123456789');
     const [department, setDepartment] = useState('1');
@@ -47,7 +49,7 @@ function Staffprofile() {
             const response = await axios.post('https://conext.in/custom_users/api/create_staff_profile/', formData, {
                 headers: {
                     'Authorization': `Token ${token}`,
-                    'Content-Type': 'multipart/form-data', 
+                    'Content-Type': 'multipart/form-data',
                 },
             });
 
@@ -61,83 +63,96 @@ function Staffprofile() {
     };
 
     return (
-        <div className='container-fluid' id='addDetailsCont'>
-            <div className='fields'>
-                <h1>Add Details</h1>
-                <div className='mt-2'>
-                    <input
-                        type="text"
-                        value={name}
-                        placeholder='Name'
-                        onChange={(e) => setName(e.target.value)} />
-                </div>
-                <div className='mt-2'>
-                    <input type="date"
-                        value={dob}
-                        placeholder='DOB'
-                        onChange={(e) => setDob(e.target.value)} />
-                </div>
-                <div className='mt-2'>
-                    <input type="text"
-                        value={mobile}
-                        placeholder='Mobile Number'
-                        onChange={(e) => setMobile(e.target.value)} />
-                </div>
-                <div className='mt-2'>
-                    <input
-                        type="text"
-                        placeholder='Department'
-                        value={department}
-                        onChange={(e) => setDepartment(e.target.value)} />
-                </div>
-                <div className='mt-2'>
-                    <input
-                        type="text"
-                        value={designation}
-                        placeholder='Designation'
-                        onChange={(e) => setDesignation(e.target.value)} />
-                </div>
-                <div className='mt-2'>
-                    <input
-                        type="text"
-                        value={address}
-                        placeholder='Address'
-                        onChange={(e) => setAddress(e.target.value)} />
-                </div>
-                <div className='mt-2'>
-                    <input
-                        type="text"
-                        value={emergencyContact}
-                        placeholder='Emergency Contact'
-                        onChange={(e) => setEmergencyContact(e.target.value)} />
-                </div>
-                <div className='mt-2'>
-                    <input
-                        type="text"
-                        value={bloodGroup}
-                        placeholder='Blood Group'
-                        onChange={(e) => setBloodGroup(e.target.value)} />
-                </div>
-                <div className='mt-2'>
-                    <input
-                        type="file"
-                        placeholder='Profile Picture'
-                        onChange={handleFileChange} />
-                </div>
-                <div>
-                    {
-                        isDetails ? (
-                            <button className='mt-2 btn' >Profile addded <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+        <>
+            <Navbar />
+            <div className='container-fluid' id='registerCont'>
+                <div className="containn col-md-8 col-xs-10">
 
-                        ) : (
-                            <button className='mt-3 btn4' onClick={handleSubmit}>Create Staff Profile</button>
+                    <h1 className='h11' style={{ color: "black" }}>Add Details to your account</h1>
+                    <p className='paraReg mt-4'>
+                        <span style={{ fontWeight: "700" }}>
+                        "Congratulations, your journey in our e-learning community has begun! We can't wait to help you unlock a world of knowledge and growth."</span>
 
-                        )
-                    }
+                        </p>
+                    <div>
+                        <div className='mt-2'>
+                            <input
+                                type="text"
+                                value={name}
+                                placeholder='Name'
+                                onChange={(e) => setName(e.target.value)} />
+                        </div>
+                        <div className='mt-2'>
+                            <input type="date"
+                                value={dob}
+                                placeholder='DOB'
+                                onChange={(e) => setDob(e.target.value)} />
+                        </div>
+                        <div className='mt-2'>
+                            <input type="text"
+                                value={mobile}
+                                placeholder='Mobile Number'
+                                onChange={(e) => setMobile(e.target.value)} />
+                        </div>
+                        <div className='mt-2'>
+                            <input
+                                type="text"
+                                placeholder='Department'
+                                value={department}
+                                onChange={(e) => setDepartment(e.target.value)} />
+                        </div>
+                        <div className='mt-2'>
+                            <input
+                                type="text"
+                                value={designation}
+                                placeholder='Designation'
+                                onChange={(e) => setDesignation(e.target.value)} />
+                        </div>
+                        <div className='mt-2'>
+                            <input
+                                type="text"
+                                value={address}
+                                placeholder='Address'
+                                onChange={(e) => setAddress(e.target.value)} />
+                        </div>
+                        <div className='mt-2'>
+                            <input
+                                type="text"
+                                value={emergencyContact}
+                                placeholder='Emergency Contact'
+                                onChange={(e) => setEmergencyContact(e.target.value)} />
+                        </div>
+                        <div className='mt-2'>
+                            <input
+                                type="text"
+                                value={bloodGroup}
+                                placeholder='Blood Group'
+                                onChange={(e) => setBloodGroup(e.target.value)} />
+                        </div>
+                        <div className='mt-2'>
+                            <input
+                                type="file"
+                                placeholder='Profile Picture'
+                                onChange={handleFileChange} />
+                        </div>
+                        <div>
+                            {
+                                isDetails ? (
+                                    <button className='mt-2 btn' >Profile addded <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+
+                                ) : (
+                                    <button className='mt-2 mb-3 btn' onClick={handleSubmit}>Create Staff Profile</button>
+                                    
+
+                                )
+                            }
+                        </div>
+
+                    </div>
                 </div>
-
             </div>
-        </div>
+        </>
+
     )
 }
 

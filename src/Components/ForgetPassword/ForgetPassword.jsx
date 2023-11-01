@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import Navbar from "../Navbar/Navbar"
 import "./ForgetPassword.css"
 
 function App() {
@@ -83,71 +84,83 @@ function App() {
     }
 
     return (
-        <div className='container-fluid' id='forgetCOnt'>
-            <div className="forgetField col-md-6">
-                <h1>Reset Password</h1>
-                <div>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => {
-                            setEmail(e.target.value)
-                        }}
-                        placeholder="Enter your email"
-                    />
-                    {
-                        isOtpGet ? (
-                            <button className='mt-2 btnSuc'>OTP Sent</button>
-                        ) : (
-                            <button className='mt-2' onClick={handleGetOTP}>Get OTP</button>
+        <>
+            <Navbar />
+            <div className='container-fluid' id='forgetCOnt'>
+                <div className="forgetField col-md-8">
+                    <h1 style={{ color: "black", textAlign: "center" }}>Password Reset</h1>
+                    <p className='paraReset mt-2'>Forgot your password?<br />
+                        Don't worry; you can reset your password here!</p>
+                    <div className='imgCont col-12'>
+                        <div className='fingimg col-md-4 col-xs-8'>
+                        </div>
+                    </div>
 
-                        )
-                    }
-                </div>
+                    <div className='mt-4'>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => {
+                                setEmail(e.target.value)
+                            }}
+                            placeholder="Enter your email"
+                        />
+                        {
+                            isOtpGet ? (
+                                <button className='mt-2 btnReset btn-success'>OTP Sent</button>
+                            ) : (
+                                <button className='mt-2 btnReset' onClick={handleGetOTP}>Get OTP</button>
 
-                <div>
-                    <input
-                        type="text"
-                        value={otp}
-                        onChange={(e) => {
-                            setOtp(e.target.value);
-                        }}
-                        placeholder="Enter OTP"
-                    />
-                    {
-                        otpVerified ? (
-                            <button className='mt-2 btnSuc' >Verified</button>
+                            )
+                        }
+                    </div>
 
-                        ) : (
-                            <button className='mt-2' onClick={handleVerifyOTP}>Verify OTP</button>
+                    <div>
+                        <input
+                            type="text"
+                            value={otp}
+                            onChange={(e) => {
+                                setOtp(e.target.value);
+                            }}
+                            placeholder="Enter OTP"
+                        />
+                        {
+                            otpVerified ? (
+                                <button className='mt-2 btnReset btn-success' >Verified</button>
 
-                        )
-                    }
+                            ) : (
+                                <button className='mt-2 btnReset' onClick={handleVerifyOTP}>Verify OTP</button>
 
-                </div>
+                            )
+                        }
 
-                <div>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => {
-                            setPassword(e.target.value);
-                        }}
-                        placeholder="Enter new password"
-                    />
-                    {
-                        resetSuccess ? (
-                            <button className='mt-2 btn' >Done <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+                    </div>
 
-                        ) : (
-                            <button className='mt-2' onClick={handleResetPassword}>Reset Password</button>
+                    <div>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                            }}
+                            placeholder="Enter new password"
+                        />
+                        <div>
+                        {
+                            resetSuccess ? (
+                                <button className='mt-2 btn btn-success' >Done <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
 
-                        )
-                    }
+                            ) : (
+                                <button className='mt-3 btn' onClick={handleResetPassword}>Reset Password</button>
 
+                            )
+                        }
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

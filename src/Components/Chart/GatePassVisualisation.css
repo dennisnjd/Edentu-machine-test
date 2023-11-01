@@ -1,4 +1,4 @@
-.selectt{
+.selectt {
     width: 20vw;
     height: 6vh;
     border: none;
@@ -7,8 +7,26 @@
     color: rgb(115, 156, 231);
 }
 
-.count{
+.count {
     font-weight: 700;
     font-size: large;
     color: rgb(5, 90, 62);
+}
+
+.large-font {
+    font-size: 19px;
+    /* Adjust the font size as needed */
+    margin-right: 20px;
+    /* Add right margin for spacing */
+    color: black;
+}
+
+@media (max-width: 767px) {
+    .h1Chart {
+        font-weight: 700;
+        font-size: 28px;
+    }
+    .chartContain{
+        margin-top: -111px;
+    }
 }

@@ -1,28 +1,50 @@
 #registerCont {
-    background-image: url("./bg2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
+    background: #A2B0FF;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
 }
 
-.contain {
+.containn {
     height: 80vh;
     padding: 8%;
     padding-top: 5%;
     border-radius: 30px;
-    box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.1);
 
 }
-input{
+
+.h11 {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 8.1px;
+    font-size: 46px;
+    text-align: center;
+}
+
+.paraReg {
+    font-weight: 600;
+    font-size: larger;
+    text-align: center;
+    font-style: normal;
+}
+
+.containn ::placeholder {
+    color: #878BDE;
+}
+
+input {
     outline: none;
     border: none;
-    border-bottom: 2px solid rgb(126, 163, 212);
-    width: 100%;
+    border-bottom: 1px solid #151596;
+    color: black;
+    font-family: "lucida sans unicode", "lucida grande", sans-serif;
+    font-size: 21px;
+    width: 70%;
+    letter-spacing: 1.2px;
+    line-height: 19px;
     height: 4vw;
     background-color: transparent;
 }
+
 @media (max-width: 767px) {
 
     /* Apply the following styles only for screens with a max-width of 767px (typically mobile devices) */
@@ -30,18 +52,45 @@ input{
         height: 10vw;
         /* Adjust the height as needed */
     }
-   
+
+    .btn {
+        width: 42% !important;
+        height: 32px !important;
+    }
+
 }
 
-.btn{
+.btn {
     width: 50%;
     height: 48px;
     /* border-color: transparent; */
-    background-color: #002f34;
-    color: whitesmoke;
+    /* background-color: #002f34; */
+    background-color: rgb(17, 17, 17);
+    color: rgb(255, 255, 255);
     font-weight: 900;
 }
-.btn:hover{
+
+.btn:hover {
     color: white;
     background-color: #0f4e55;
+}
+@media (max-width: 767px) {
+
+    /* Apply the following styles only for screens with a max-width of 767px (typically mobile devices) */
+    
+.btn{
+    overflow: hidden;
+}
+.h11{
+    text-align: left;
+}
+input{
+    width: 100%;
+    padding: 0;
+}
+.paraReg{
+    width: 100%;
+    text-align: center;
+}
+
 }

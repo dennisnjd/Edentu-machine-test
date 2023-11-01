@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import "./UpdateProfile.css"
 import { AuthContext } from '../../AuthContext';
+import Navbar from "../Navbar/Navbar";
+
 
 function UpdateProfile() {
   const { state } = useContext(AuthContext);
@@ -46,33 +48,36 @@ function UpdateProfile() {
 
 
   return (
-    <div className='container-fluid' id='updateCont'>
-      <div className='updateField'>
-        <h1>Update Profile</h1>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Designation"
-          value={designation}
-          onChange={(e) => setDesignation(e.target.value)}
-        />
-        {
-          isUpdated ? (
-            <button className='mt-5 btn3' >Updated <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+    <>
+      <Navbar />
+      <div className='container-fluid' id='updateCont'>
+        <div className='updateField'>
+          <h1 className='h1update'>Update Profile</h1>
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Designation"
+            value={designation}
+            onChange={(e) => setDesignation(e.target.value)}
+          />
+          {
+            isUpdated ? (
+              <button className='mt-5 btn3' >Updated <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
 
-          ) : (
-            <button className='mt-5 btn3' onClick={handleUpdateProfile}>Update Profile</button>
+            ) : (
+              <button className='mt-5 btn3' onClick={handleUpdateProfile}>Update Profile</button>
 
-          )
-        }
+            )
+          }
 
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

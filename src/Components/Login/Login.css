@@ -1,10 +1,109 @@
-.btn2{
+#loginCont{
+    background:white;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+.btn2 {
     background-color: rgb(173, 92, 92);
     height: 50px;
     font-weight: 900;
     border: 1px solid red;
 }
-h1{
+
+.contain {
+    height: 80vh;
+    padding: 8%;
+    padding-top: 5%;
+    border-radius: 30px;
+    box-shadow: 10px 10px 80px rgba(0, 0, 0, 0.1);
+
+}
+
+.inp {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(126, 163, 212);
+    width: 100%;
+    height: 4vw;
+    background-color: transparent;
+}
+
+.btnlog {
+    width: 50%;
+    height: 48px;
+    /* border-color: transparent; */
+    /* background-color: #002f34; */
+    background-color: rgb(141, 189, 235);
+    color: black;
+    font-weight: 900;
+}
+
+.btnlog:hover {
+    color: white;
+    background-color: #0f4e55;
+}
+
+h1 {
     font-weight: 900;
     color: rgb(84, 185, 219);
+    text-align: left;
+}
+
+.h1 {
+    font-weight: 900;
+    color: rgb(84, 185, 219);
+    text-align: left;
+}
+
+.h2 {
+    font-weight: 900;
+    color: rgb(84, 185, 219);
+    text-align: left;
+}
+
+.login2 {
+    background-image: url("./bgs.png");
+    background-size: cover;
+}
+
+.contain {
+    background-color: white;
+}
+
+.bn45 {
+    width: 100px;
+    height: 32px;
+}
+
+.bn46 {
+    margin-left: 30px;
+    width: 100px;
+    height: 50px;
+}
+
+@media (max-width: 767px) {
+
+    /* Apply the following styles only for screens with a max-width of 767px (typically mobile devices) */
+    .h1 {
+        display: none;
+
+    }
+
+    .login1 {
+        height: 4vh;
+    }
+
+
+    .contain {
+        height: 76vh;
+    }
+
+    .inp {
+        margin-top: 2vh;
+    }
+    .btnlog {
+        width: 40%;
+        height: 34px;
+    }
 }

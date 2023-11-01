@@ -1,8 +1,4 @@
-#addDetailsCont {
-    background-image: url("./bg4.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 .fields {
     padding: 7%;
@@ -24,16 +20,3 @@
    
 }
 
-.btn4 {
-    width: 15vw;
-    height: 7.5vh;
-    border-radius: 40%;
-    font-weight: 900;
-    background-color: black;
-    color: white;
-}
-
-.btn4:hover {
-    background-color: white;
-    color: black;
-}
