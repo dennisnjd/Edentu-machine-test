@@ -123,7 +123,7 @@ function GatePassVisualisation() {
                             <h6 onClick={() => handleType('line')} style={{ cursor: "pointer" }}>Line Chart</h6>
                             <h6 onClick={() => handleType('bar')} style={{ cursor: "pointer" }}>Bar Chart</h6>
                             <div>
-                                <select className='selectt col-xs-12' onChange={(e) => setSelectedFilter(e.target.value)} value={selectedFilter}>
+                                <select className='selectt col-xs-12 mt-4' onChange={(e) => setSelectedFilter(e.target.value)} value={selectedFilter}>
                                     <option value="all">Select</option>
                                     <option value="applied_gatepass_count">Applied</option>
                                     <option value="processing_gatepass_count">Processing</option>
@@ -132,7 +132,7 @@ function GatePassVisualisation() {
                                 </select>
                             </div>
                             <div>
-                                <p className='mt-5 count'>
+                                <p className='mt-3 count'>
                                     {selectedFilter === 'all'
                                         ? 'All Data'
                                         : `${selectedFilter

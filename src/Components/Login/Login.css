@@ -1,9 +1,10 @@
-#loginCont{
-    background:white;
+#loginCont {
+    background: white;
     justify-content: center;
     align-items: center;
     overflow-y: auto;
 }
+
 .btn2 {
     background-color: rgb(173, 92, 92);
     height: 50px;
@@ -77,12 +78,12 @@ h1 {
 }
 
 .bn46 {
-    margin-left: 30px;
+    /* margin-left: 30px; */
     width: 100px;
     height: 50px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 750px) {
 
     /* Apply the following styles only for screens with a max-width of 767px (typically mobile devices) */
     .h1 {
@@ -92,18 +93,34 @@ h1 {
 
     .login1 {
         height: 4vh;
+        margin-bottom: 2vh;
     }
+    /* .login2{
+        margin-top: 10px;
+    } */
 
 
     .contain {
         height: 76vh;
+        margin-top: -90px;
     }
 
     .inp {
         margin-top: 2vh;
+        height: 6vw;
     }
+
     .btnlog {
         width: 40%;
         height: 34px;
+    }
+    .bn46{
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 380px) {
+    .bn45,.bn46{
+        display: none;
     }
 }

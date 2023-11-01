@@ -8,10 +8,10 @@
 }
 
 #cont {
-  
+
     /* background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(13, 13, 14, 1) 42%, rgba(45, 103, 115, 1) 77%, rgba(3, 106, 126, 1) 100%); */
-background: white;
+    background: white;
 }
 
 #cont::before {
@@ -43,11 +43,12 @@ background: white;
     justify-content: center;
     align-items: center;
 }
-.wind2{
+
+.wind2 {
     height: 80vh;
     background-image: url("./dp2.png");
- background-repeat: no-repeat;
- background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media (max-width: 767px) {
@@ -58,17 +59,19 @@ background: white;
         margin-top: -324px;
 
     }
-    .wind2{
+
+    .wind2 {
         height: 40vh;
     }
-    .bn15{
+
+    .bn15 {
         font-size: .7rem;
         padding: 5px 20px 5px 20px;
     }
-   
+
 }
 
-.parag{
+.parag {
     font-size: medium;
     color: silver;
     font-weight: 450;
@@ -92,4 +95,12 @@ background: white;
 .bn15:hover {
     color: #f7f7f7;
     background-color: #020202;
+}
+
+@media (max-width: 750px) {
+
+    /* Apply the following styles only for screens with a max-width of 767px (typically mobile devices) */
+    .h1Home{
+        font-size: 35px;
+    }
 }

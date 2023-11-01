@@ -45,7 +45,7 @@ input {
     background-color: transparent;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 755px) {
 
     /* Apply the following styles only for screens with a max-width of 767px (typically mobile devices) */
     input {
@@ -56,6 +56,9 @@ input {
     .btn {
         width: 42% !important;
         height: 32px !important;
+    }
+    .containn {
+        padding-top: 0%;
     }
 
 }

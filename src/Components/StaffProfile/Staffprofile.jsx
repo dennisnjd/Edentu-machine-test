@@ -19,6 +19,7 @@ function Staffprofile() {
     const [emergencyContact, setEmergencyContact] = useState('0987654321');
     const [bloodGroup, setBloodGroup] = useState('A+');
     const [profilePicture, setProfilePicture] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
     const [isDetails, setIsDetails] = useState(false);
 
 
@@ -32,6 +33,7 @@ function Staffprofile() {
     };
 
     const handleSubmit = async () => {
+        setIsLoading(true);
         try {
             // FormData object to send the data with the image file
             const formData = new FormData();
@@ -52,13 +54,14 @@ function Staffprofile() {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-
             console.log("Create staff API called succesfully");
             setIsDetails(true);
 
         } catch (error) {
             console.log("Create staff API error: ", error);
-            alert("Error adding profile")
+            alert("Profile already added.")
+        } finally {
+            setIsLoading(false)
         }
     };
 
@@ -71,9 +74,9 @@ function Staffprofile() {
                     <h1 className='h11' style={{ color: "black" }}>Add Details to your account</h1>
                     <p className='paraReg mt-4'>
                         <span style={{ fontWeight: "700" }}>
-                        "Congratulations, your journey in our e-learning community has begun! We can't wait to help you unlock a world of knowledge and growth."</span>
+                            "Congratulations, your journey in our e-learning community has begun! We can't wait to help you unlock a world of knowledge and growth."</span>
 
-                        </p>
+                    </p>
                     <div>
                         <div className='mt-2'>
                             <input
@@ -140,9 +143,11 @@ function Staffprofile() {
                                 isDetails ? (
                                     <button className='mt-2 btn' >Profile addded <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
 
+                                ) : isLoading ? (
+                                    <button className='mt-2 btn' >Adding <i className="fa-solid fa-spinner fa-spin"></i></button>
                                 ) : (
                                     <button className='mt-2 mb-3 btn' onClick={handleSubmit}>Create Staff Profile</button>
-                                    
+
 
                                 )
                             }

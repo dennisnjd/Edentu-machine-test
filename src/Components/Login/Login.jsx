@@ -75,7 +75,7 @@ function Login() {
                             }
                             <div className='col-12 mt-5'>
                                 <a href="https://play.google.com/store/search?q=edentu&c=apps&hl=en&gl=US" target="_blank" tabIndex="0"><img className="bn45" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="bn45" /></a>
-                                <a href=" https://apps.apple.com/us/app/edentu/id1624471043" target="_blank" tabIndex="0"><img className="bn46 ms-md-5" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="bn45" /></a>
+                                <a href=" https://apps.apple.com/us/app/edentu/id1624471043" target="_blank" tabIndex="0"><img className="bn46 ml-md-4 ml-sm-5" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="bn45" /></a>
                             </div>
                         </div>
                     </div>
@@ -86,33 +86,7 @@ function Login() {
 
                     </div>
 
-
                 </div>
-
-                {/* <div>
-                <div className="row mt-5">
-
-                    <div className='ms-2 col-5' >
-                        <Link to={"/create"}>  <button className='btn2'>Add details</button>
-                        </Link>
-                    </div>
-
-                    <div className='ms-2 col-5'>
-                        <Link to={"/updateprofile"}>  <button className='btn2'>Update profile</button>
-                        </Link>
-                    </div>
-
-                    <div className='mt-3 col-5'>
-                        <Link to={"/reset"}>  <button className='btn2'>Reset password</button>
-                        </Link>
-                    </div>
-
-                    <div className=' mt-3 col-5'>
-                        <Link to={"/chart"}>  <button className='btn2'>Gate Pass chart </button>
-                        </Link>
-                    </div>
-                </div>
-            </div> */}
             </div >
         </>
     );

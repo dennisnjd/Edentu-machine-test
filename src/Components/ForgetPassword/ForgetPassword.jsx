@@ -10,9 +10,12 @@ function App() {
     const [otpVerified, setOtpVerified] = useState(false);
     const [password, setPassword] = useState('');
     const [resetSuccess, setResetSuccess] = useState('');
+    const [otpLoading, setOtpLoading] = useState(false);
+    const [resetLoading, setResetLoading] = useState(false);
 
     // Function to handle OTP request
     const handleGetOTP = async () => {
+        setOtpLoading(true);
         try {
             const response = await axios.post('https://conext.in/custom_users/api/forgot_password/', `email_address=${email}`, {
                 headers: {
@@ -23,11 +26,16 @@ function App() {
 
             // Handle the response, e.g., show a success message
             console.log('Get OTP API called successfully', response);
-            setIsOtpGet(true);
+            if (response.data.status == true)
+                setIsOtpGet(true);
+            else
+                alert("No account found with this email id")
 
         } catch (error) {
             // Handle errors, e.g., show an error message
             console.error('Get OTP API error:', error);
+        } finally {
+            setOtpLoading(false)
         }
     };
 
@@ -59,6 +67,7 @@ function App() {
 
     //function to handle password reset
     const handleResetPassword = async () => {
+        setResetLoading(true);
         try {
             const resetFormData = new URLSearchParams();
             resetFormData.append('email_address', email);
@@ -79,6 +88,8 @@ function App() {
         } catch (error) {
             // Handle errors, e.g., show an error message
             console.error('Password reset error:', error);
+        } finally {
+            setResetLoading(false);
         }
 
     }
@@ -108,10 +119,15 @@ function App() {
                         {
                             isOtpGet ? (
                                 <button className='mt-2 btnReset btn-success'>OTP Sent</button>
-                            ) : (
-                                <button className='mt-2 btnReset' onClick={handleGetOTP}>Get OTP</button>
+                            ) :
+                                otpLoading ? (
+                                    <button className='mt-2 btnReset btn-info'>Sending <i className="fa-solid fa-spinner fa-spin"></i></button>
 
-                            )
+                                )
+                                    : (
+                                        <button className='mt-2 btnReset' onClick={handleGetOTP}>Get OTP</button>
+
+                                    )
                         }
                     </div>
 
@@ -146,15 +162,18 @@ function App() {
                             placeholder="Enter new password"
                         />
                         <div>
-                        {
-                            resetSuccess ? (
-                                <button className='mt-2 btn btn-success' >Done <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
+                            {
+                                resetSuccess ? (
+                                    <button className='mt-2 btn btn-success' >Done <i className="fa-sharp fa-solid fa-check fa-xl"></i></button>
 
-                            ) : (
-                                <button className='mt-3 btn' onClick={handleResetPassword}>Reset Password</button>
+                                ) :
+                                    resetLoading ? (
+                                        <button className='mt-2 btnReset btn-info'> <i className="fa-solid fa-spinner fa-spin"></i></button>
+                                    ) : (
+                                        <button className='mt-3 btn' onClick={handleResetPassword}>Reset Password</button>
 
-                            )
-                        }
+                                    )
+                            }
                         </div>
 
                     </div>

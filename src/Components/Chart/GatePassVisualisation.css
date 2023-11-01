@@ -20,6 +20,9 @@
     /* Add right margin for spacing */
     color: black;
 }
+.h1Chart{
+    text-align: center;
+}
 
 @media (max-width: 767px) {
     .h1Chart {
