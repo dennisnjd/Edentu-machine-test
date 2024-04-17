@@ -17,7 +17,7 @@ function App() {
     const handleGetOTP = async () => {
         setOtpLoading(true);
         try {
-            const response = await axios.post('https://conext.in/custom_users/api/forgot_password/', `email_address=${email}`, {
+            const response = await axios.post('https://removed/', `email_address=${email}`, {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
@@ -46,7 +46,7 @@ function App() {
             const formData = new URLSearchParams();
             formData.append('otp', otp);
             formData.append('email_address', email);
-            const response2 = await axios.post('https://conext.in/custom_users/api/verify_otp/', formData, {
+            const response2 = await axios.post('https://removed/', formData, {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
@@ -74,7 +74,7 @@ function App() {
             resetFormData.append('otp', otp);
             resetFormData.append('new_password', password);
 
-            const resetResponse = await axios.post('https://conext.in/custom_users/api/reset_password/', resetFormData, {
+            const resetResponse = await axios.post('https://removed/', resetFormData, {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },

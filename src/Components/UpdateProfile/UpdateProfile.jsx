@@ -33,7 +33,7 @@ function UpdateProfile() {
     };
 
     //PUT request with the headers and data
-    axios.put('https://conext.in/custom_users/api/update-profile/', data, { headers })
+    axios.put('https://removed/', data, { headers })
       .then(response => {
 
         console.log("Update API called");

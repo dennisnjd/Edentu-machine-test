@@ -18,7 +18,7 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('https://conext.in/custom_users/api/login/', {
+            const response = await axios.post('https://removed/', {
                 username: email,
                 password: password,
             });

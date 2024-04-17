@@ -19,7 +19,7 @@ function AuthComponent() {
     // Verify the email id by sending OTP
     const handleVerifyEmail = async () => {
         try {
-            const verifyEmailResponse = await axios.post('https://conext.in/custom_users/api/verify_email/', {
+            const verifyEmailResponse = await axios.post('https://removed/', {
                 email_address: email,
                 org,
             });
@@ -46,7 +46,7 @@ function AuthComponent() {
 
         try {
             // Register the user with the provided OTP
-            const registrationResponse = await axios.post('https://conext.in/custom_users/api/register/', {
+            const registrationResponse = await axios.post('https://removed/', {
                 email,
                 password,
                 organization: org,
@@ -57,7 +57,7 @@ function AuthComponent() {
         } catch (error) {
             setIsLoading(false);
             console.log("Error in registration API");
-            
+
         }
     }
 

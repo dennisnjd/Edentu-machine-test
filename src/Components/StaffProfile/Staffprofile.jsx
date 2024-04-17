@@ -48,7 +48,7 @@ function Staffprofile() {
             formData.append('picture', profilePicture);
 
             // POST request to create the staff profile
-            const response = await axios.post('https://conext.in/custom_users/api/create_staff_profile/', formData, {
+            const response = await axios.post('https://removed/', formData, {
                 headers: {
                     'Authorization': `Token ${token}`,
                     'Content-Type': 'multipart/form-data',

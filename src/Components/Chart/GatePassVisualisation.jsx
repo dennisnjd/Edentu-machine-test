@@ -61,7 +61,7 @@ function GatePassVisualisation() {
 
     useEffect(() => {
         // Fetch gate pass data from the API
-        axios.get('https://conext.in/gatePass/api/gate_pass_counts/', {
+        axios.get('https://removed', {
             headers: {
                 'Authorization': `Token ${token}`,
                 'Content-Type': 'application/json',
