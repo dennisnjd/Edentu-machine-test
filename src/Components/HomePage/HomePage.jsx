@@ -11,7 +11,7 @@ function HomePage() {
 
                 </div>
                 <div className='col-md-7 col-xs-12'>
-                    <h1 className='h1Home' style={{ textAlign: "center" }}>EDENTU CONNECT</h1>
+                    <h1 className='h1Home' style={{ textAlign: "center" }}>Edentu Connect</h1>
 
                     <p className='parag mt-4'>"A Comprehensive , all encompassing solution you could ever get for<br /> an adaptive & technology integrated learning experience through out <br /> your journey from BDS to NEET MDS</p>
                     <hr className='mt-3' />
